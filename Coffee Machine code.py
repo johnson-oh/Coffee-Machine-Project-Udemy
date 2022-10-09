@@ -35,6 +35,7 @@ resources = {
 
 machinemoney=0
 
+#asks user which beverage they would like to order, returns a report of how much resources left if 'report' is entered and ends code when 'off' is entered
 def ask():
     for key, value in MENU.items():
         print(key)
@@ -53,6 +54,7 @@ def ask():
             print(f'cost is {MENU[userinput]["cost"]}')
             return userinput
 
+#checks if there are sufficent resources to make the coffee
 def resourcechecker(beverage):
     lacking=False
     missing=[]
@@ -66,7 +68,7 @@ def resourcechecker(beverage):
     else:
         return 0
 
-
+#takes coins from user
 def coinprocessor(a):
     if a == 0:
         print('insert coins')
@@ -102,7 +104,7 @@ def coinprocessor(a):
                 print('enter an integer')
         return quartersinput*0.25+dimesinput*0.10+nickeslinput*0.05+penniesinput*0.01+dollarinput
 
-
+#checks if coins match price of coffee
 def transactionchecker(a,b):
     costofcoffee=MENU[a]['cost']
     global machinemoney
